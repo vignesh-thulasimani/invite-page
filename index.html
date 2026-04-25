@@ -17,6 +17,7 @@
     img {
       width: 100%;
       max-width: 420px;
+      opacity: 1;
       transition: opacity 1s ease;
     }
 
@@ -33,12 +34,26 @@
 <script>
   const img = document.getElementById("screen");
 
+  // Preload final image
+  const finalImage = new Image();
+  finalImage.src = "finalpg.jpeg";
+
   setTimeout(() => {
+    // Step 1: Fade out loading image
     img.classList.add("fade-out");
 
     setTimeout(() => {
-      img.src = "finalpg.jpeg";
-      img.classList.remove("fade-out");
+      // Step 2: Switch image while still invisible
+      img.src = finalImage.src;
+
+      // Step 3: Ensure it's still hidden
+      img.style.opacity = 0;
+
+      // Step 4: Trigger fade-in
+      setTimeout(() => {
+        img.style.opacity = 1;
+      }, 50);
+
     }, 1000);
 
   }, 2500);

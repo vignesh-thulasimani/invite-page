@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitation</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    img {
+      width: 100%;
+      max-width: 420px;
+      transition: opacity 1s ease;
+    }
+
+    .fade-out {
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body>
+
+<img id="screen" src="loading.png">
+
+<script>
+  const img = document.getElementById("screen");
+
+  setTimeout(() => {
+    img.classList.add("fade-out");
+
+    setTimeout(() => {
+      img.src = "finalpg.jpeg";
+      img.classList.remove("fade-out");
+    }, 1000);
+
+  }, 2500);
+</script>
+
+</body>
+</html>
